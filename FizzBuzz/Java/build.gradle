@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "org.testng:testng:6.9.13.6"
+    testCompile "org.apache.commons:commons-lang3:3.0"
+}
+
+test {
+    useTestNG()
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: $descriptor.className")
+    }
+}
